@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:medicine_app/bussiness_logic/utills/app_colors.dart';
 import 'package:medicine_app/bussiness_logic/utills/common_widget/button.dart';
 import 'package:medicine_app/bussiness_logic/utills/common_widget/text_form_field.dart';
+import 'package:medicine_app/bussiness_logic/utills/shared_preference/shared_preference_class.dart';
 import 'package:medicine_app/bussiness_logic/utills/validation/validation_class.dart';
 import 'package:medicine_app/bussiness_logic/utills/app_strings.dart';
+import 'package:medicine_app/ui/views/dashboard/dashboard_screen.dart';
 import 'package:medicine_app/ui/views/login/widget/login_widget.dart';
 
 class Login extends StatefulWidget {
@@ -54,7 +57,30 @@ class _LoginState extends State<Login> {
                   Padding(
                     padding: const EdgeInsets.only(top: 80, bottom: 20),
                     child: submitBox(onTap: () {
-                      if (_formKey.currentState!.validate()) {}
+                      if (_formKey.currentState!.validate()) {
+                        if (AppPreference.getString(AppString.phoneNumberValue) ==
+                                numberController.text &&
+                            AppPreference.getString(AppString.passwordValue) ==
+                                passwordController.text) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const DashboardScreen(),
+                              ));
+                        } else {
+                          const fail = SnackBar(
+                            content: Text(
+                              AppString.invalidLogin,
+                              style: TextStyle(color: AppColors.white),
+                            ),
+                            duration: Duration(seconds: 3),
+                            backgroundColor: (AppColors.red),
+                            dismissDirection: DismissDirection.down,
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(fail);
+                          return;
+                        }
+                      }
                     }),
                   ),
                   loginBottom(context),

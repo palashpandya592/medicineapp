@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medicine_app/bussiness_logic/utills/common_widget/button.dart';
 import 'package:medicine_app/bussiness_logic/utills/common_widget/text_form_field.dart';
+import 'package:medicine_app/bussiness_logic/utills/shared_preference/shared_preference_class.dart';
 import 'package:medicine_app/bussiness_logic/utills/validation/validation_class.dart';
 import 'package:medicine_app/bussiness_logic/utills/app_colors.dart';
 import 'package:medicine_app/bussiness_logic/utills/app_strings.dart';
@@ -117,7 +118,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         return;
                       }
                     },
-                    child: submitBox(),
+                    child: submitBox(onTap: (){
+                      if(_formKey.currentState!.validate()){
+                        AppPreference.set(AppString.phoneNumberValue, numberController.text);
+                        AppPreference.set(AppString.passwordValue, passwordController.text);
+                        AppPreference.set(AppString.userNameValue,usernameController.text);
+                        AppPreference.set(AppString.emailValue, emailController.text);
+                        Navigator.pop(context);
+                      }
+                    }),
                   )
                 ],
               ),

@@ -8,6 +8,9 @@ class AppColors {
   static const grey = Color(0xFF757575);
   static const pink = Color(0xFFff0066);
   static const lightOrange = Color(0xFFff9966);
-  static const white=Colors.white;
-  static const red=Colors.red;
+  static const white = Colors.white;
+  static const greyShadowColor = Color(0x4A000029);
+  static const red = Colors.red;
+  static final grey100 = Colors.grey[100];
+  static const purple = Colors.purple;
 }
