@@ -78,11 +78,11 @@ class Lab {
   String? missingField;
 
   factory Lab.fromJson(Map<String, dynamic> json) => Lab(
-    missingField: json["missing_field"] == null ? null : json["missing_field"],
+    missingField: json["missing_field"],
   );
 
   Map<String, dynamic> toJson() => {
-    "missing_field": missingField == null ? null : missingField,
+    "missing_field": missingField,
   };
 }
 
@@ -154,14 +154,14 @@ class AssociatedDrug {
   String? strength;
 
   factory AssociatedDrug.fromJson(Map<String, dynamic> json) => AssociatedDrug(
-    name: json["name"] == null ? null : json["name"],
-    dose: json["dose"] == null ? null : json["dose"],
-    strength: json["strength"] == null ? null : json["strength"],
+    name: json["name"],
+    dose: json["dose"],
+    strength: json["strength"],
   );
 
   Map<String, dynamic> toJson() => {
-    "name": name == null ? null : name,
-    "dose": dose == null ? null : dose,
-    "strength": strength == null ? null : strength,
+    "name": name,
+    "dose": dose,
+    "strength": strength,
   };
 }

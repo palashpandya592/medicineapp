@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medicine_app/bussiness_logic/utills/app_colors.dart';
-import 'package:medicine_app/bussiness_logic/utills/app_text_style.dart';
+import 'package:medicine_app/utils/app_colors.dart';
+import 'package:medicine_app/utils/app_text_style.dart';
 
 Widget submitBox({onTap}) {
   return GestureDetector(

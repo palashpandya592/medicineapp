@@ -7,24 +7,53 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:medicine_app/utils/validation/validation_class.dart';
 
-import 'package:medicine_app/main.dart';
+import 'package:medicine_app/ui/views/login/login.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  group('Login Module', () {
+  test('Empty Email Test', () {
+    var result = validFunemail('');
+    expect(result, 'please enter email address');
+  });
+  test('Valid Email Test', () {
+    var result = validFunemail('abc@gmail.com');
+    expect(result, null);
+  });
+  testWidgets('Mobile and password filled OK', (WidgetTester tester) async {
+    var app = const MediaQuery(data: MediaQueryData(), child: MaterialApp(home: Login()));
+    await tester.pumpWidget(app);
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    Finder email = find.byKey(const Key('mobile'));
+    Finder pwd = find.byKey(const Key('password'));
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    await tester.enterText(email, "7567055592");
+    await tester.enterText(pwd, "Pa&&word123");
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    Finder formWidgetFinder = find.byType(Form);
+    Form formWidget = tester.widget(formWidgetFinder) as Form;
+    GlobalKey<FormState> formKey = formWidget.key as GlobalKey<FormState>;
+
+    expect(formKey.currentState?.validate(), isTrue);
+  });
+  testWidgets('Mobile  and password filled wrong data', (WidgetTester tester) async {
+    var app = const MediaQuery(data: MediaQueryData(), child: MaterialApp(home: Login()));
+    await tester.pumpWidget(app);
+
+    Finder email = find.byKey(const Key('mobile'));
+    Finder pwd = find.byKey( const Key('password'));
+
+    await tester.enterText(email, "7567055592");
+    await tester.enterText(pwd, "123456");
+    await tester.pump();
+
+    Finder formWidgetFinder = find.byType(Form);
+    Form formWidget = tester.widget(formWidgetFinder) as Form;
+    GlobalKey<FormState> formKey = formWidget.key as GlobalKey<FormState>;
+
+    expect(formKey.currentState?.validate(), isFalse);
+  });
   });
 }

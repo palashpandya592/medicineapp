@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medicine_app/bussiness_logic/utills/app_colors.dart';
-import 'package:medicine_app/bussiness_logic/utills/app_text_style.dart';
+import 'package:medicine_app/utils/app_colors.dart';
+import 'package:medicine_app/utils/app_text_style.dart';
 
 Widget dashboardBottom({nameText,doseText,strengthText,drugText}){
   return Padding(
@@ -9,8 +9,8 @@ Widget dashboardBottom({nameText,doseText,strengthText,drugText}){
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(drugText,style: normalBoldTextStyle(16, AppColors.black),),
-        Divider(height: 10,color: AppColors.buttonShadowColor,thickness: 1,),
-        SizedBox(height: 10,),
+        const Divider(height: 10,color: AppColors.buttonShadowColor,thickness: 1,),
+        const SizedBox(height: 10,),
         Container(
           height: 50,
           decoration: BoxDecoration(

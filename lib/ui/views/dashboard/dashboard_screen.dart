@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:medicine_app/bussiness_logic/utills/app_colors.dart';
-import 'package:medicine_app/bussiness_logic/utills/app_strings.dart';
-import 'package:medicine_app/bussiness_logic/utills/app_text_style.dart';
-import 'package:medicine_app/bussiness_logic/view_model/register_view_model.dart';
+import 'package:medicine_app/bussiness_logic/view_model/dashboard_view_model.dart';
+import 'package:medicine_app/utils/app_colors.dart';
+import 'package:medicine_app/utils/app_strings.dart';
+import 'package:medicine_app/utils/app_text_style.dart';
 import 'package:medicine_app/main.dart';
 import 'package:medicine_app/ui/views/dashboard/widget/dashboard_bottom.dart';
 import 'package:medicine_app/ui/views/dashboard/widget/dashboard_header.dart';
@@ -55,24 +55,24 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     builder: (context, data, child) => data.isLoading
                         ? const CircularProgressIndicator()
                         : ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: data.medicine!.problems!.length,
                           itemBuilder: (context, index) => ListView.builder(
-                            physics: NeverScrollableScrollPhysics(),
+                            physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: data.medicine!.problems![index].diabetes!.length,
                             itemBuilder: (context, index1) => ListView.builder(
-                              physics: NeverScrollableScrollPhysics(),
+                              physics: const NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
                               itemCount: data.medicine!.problems![index].diabetes![index1].medications!.length,
                               itemBuilder: (context, index2) => ListView.builder(
-                                physics: NeverScrollableScrollPhysics(),
+                                physics: const NeverScrollableScrollPhysics(),
                                 shrinkWrap: true,
                                 itemCount: data.medicine!.problems![index].diabetes![index1].medications![index2].medicationsClasses!.length,
                                 itemBuilder: (context, index3) =>  ListView.builder(
                                   shrinkWrap: true,
-                                  physics: NeverScrollableScrollPhysics(),
+                                  physics: const NeverScrollableScrollPhysics(),
                                   itemCount: data.medicine!.problems![index].diabetes![index1].medications![index2].medicationsClasses![index3].className!.length,
                                   itemBuilder: (context, index4) {
                                  var dMedicine= data.medicine!.problems![index].diabetes![index1].medications![index2].medicationsClasses![index3].className!;
@@ -80,17 +80,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                        children: [
                                        ListView.builder(
                                            shrinkWrap: true,
-                                           physics: NeverScrollableScrollPhysics(),
+                                           physics: const NeverScrollableScrollPhysics(),
                                            itemCount: data.medicine!.problems![index].diabetes![index1].medications![index2].medicationsClasses![index3].className![index4].associatedDrug!.length,
-                                           itemBuilder: (context, index5) => dashboardBottom(drugText:AppString.associated,nameText: dMedicine![index5].associatedDrug![index5].name.toString(),
+                                           itemBuilder: (context, index5) => dashboardBottom(drugText:AppString.associated,nameText: dMedicine[index5].associatedDrug![index5].name.toString(),
                                              doseText: dMedicine[index5].associatedDrug![index5].dose.toString().isEmpty ? "---" :dMedicine[index5].associatedDrug![index5].dose.toString(),
                                              strengthText: dMedicine[index5].associatedDrug![index5].strength.toString()),),
                                          const SizedBox(height: 20,),
                                          ListView.builder(
                                            shrinkWrap: true,
-                                           physics: NeverScrollableScrollPhysics(),
+                                           physics: const NeverScrollableScrollPhysics(),
                                            itemCount: data.medicine!.problems![index].diabetes![index1].medications![index2].medicationsClasses![index3].className![index4].associatedDrug2!.length,
-                                           itemBuilder: (context, index6) => dashboardBottom(drugText:AppString.associated2,nameText: dMedicine![index6].associatedDrug2![index6].name.toString(),
+                                           itemBuilder: (context, index6) => dashboardBottom(drugText:AppString.associated2,nameText: dMedicine[index6].associatedDrug2![index6].name.toString(),
                                                doseText: dMedicine[index6].associatedDrug2![index6].dose.toString().isEmpty ? "---" :dMedicine[index6].associatedDrug2![index6].dose.toString(),
                                                strengthText: dMedicine[index6].associatedDrug2![index6].strength.toString()),),
                                        ],
@@ -115,24 +115,24 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   builder: (context, data, child) => data.isLoading
                       ? const CircularProgressIndicator()
                       : ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: data.medicine!.problems!.length,
                     itemBuilder: (context, index) => ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount: data.medicine!.problems![index].diabetes!.length,
                       itemBuilder: (context, index1) => ListView.builder(
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: data.medicine!.problems![index].diabetes![index1].medications!.length,
                         itemBuilder: (context, index2) => ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: data.medicine!.problems![index].diabetes![index1].medications![index2].medicationsClasses!.length,
                           itemBuilder: (context, index3) =>  ListView.builder(
                               shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
+                              physics: const NeverScrollableScrollPhysics(),
                               itemCount: data.medicine!.problems![index].diabetes![index1].medications![index2].medicationsClasses![index3].className!.length,
                               itemBuilder: (context, index4) {
                                 var dMedicine= data.medicine!.problems![index].diabetes![index1].medications![index2].medicationsClasses![index3].className!;
@@ -140,17 +140,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   children: [
                                     ListView.builder(
                                       shrinkWrap: true,
-                                      physics: NeverScrollableScrollPhysics(),
+                                      physics: const NeverScrollableScrollPhysics(),
                                       itemCount: data.medicine!.problems![index].diabetes![index1].medications![index2].medicationsClasses![index3].className![index4].associatedDrug!.length,
-                                      itemBuilder: (context, index5) => dashboardBottom(drugText:AppString.associated,nameText: dMedicine![index5].associatedDrug![index5].name.toString(),
+                                      itemBuilder: (context, index5) => dashboardBottom(drugText:AppString.associated,nameText: dMedicine[index5].associatedDrug![index5].name.toString(),
                                           doseText: dMedicine[index5].associatedDrug![index5].dose.toString().isEmpty ? "---" :dMedicine[index5].associatedDrug![index5].dose.toString(),
                                           strengthText: dMedicine[index5].associatedDrug![index5].strength.toString()),),
                                     const SizedBox(height: 20,),
                                     ListView.builder(
                                       shrinkWrap: true,
-                                      physics: NeverScrollableScrollPhysics(),
+                                      physics: const NeverScrollableScrollPhysics(),
                                       itemCount: data.medicine!.problems![index].diabetes![index1].medications![index2].medicationsClasses![index3].className![index4].associatedDrug2!.length,
-                                      itemBuilder: (context, index6) => dashboardBottom(drugText:AppString.associated2,nameText: dMedicine![index6].associatedDrug2![index6].name.toString(),
+                                      itemBuilder: (context, index6) => dashboardBottom(drugText:AppString.associated2,nameText: dMedicine[index6].associatedDrug2![index6].name.toString(),
                                           doseText: dMedicine[index6].associatedDrug2![index6].dose.toString().isEmpty ? "---" :dMedicine[index6].associatedDrug2![index6].dose.toString(),
                                           strengthText: dMedicine[index6].associatedDrug2![index6].strength.toString()),),
                                   ],

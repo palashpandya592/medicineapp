@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:medicine_app/bussiness_logic/models/modicine_model.dart';
+import 'package:medicine_app/bussiness_logic/models/medicine_model.dart';
 
 class DashboardViewModel extends ChangeNotifier {
   Medicine? medicine;
@@ -15,7 +15,9 @@ class DashboardViewModel extends ChangeNotifier {
     isLoading=false;
     final data = await json.decode(response);
     medicine = Medicine.fromJson(data);
-    print("data-------$medicine");
+    if (kDebugMode) {
+      print("data-------$medicine");
+    }
     notifyListeners();
   }
 

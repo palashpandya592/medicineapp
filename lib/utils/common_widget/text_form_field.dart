@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:medicine_app/bussiness_logic/utills/app_colors.dart';
-import 'package:medicine_app/bussiness_logic/utills/app_text_style.dart';
+import 'package:medicine_app/utils/app_colors.dart';
+import 'package:medicine_app/utils/app_text_style.dart';
 
 Widget buildTextFormField(
     {TextEditingController? controller,
     TextInputType? keyboardType,
     String? hintText,
     validator,
-    onChanged}) {
+    onChanged,  Key? key}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 15),
     child: TextFormField(
+      key:key,
       controller: controller,
       onChanged: onChanged,
       keyboardType: keyboardType,

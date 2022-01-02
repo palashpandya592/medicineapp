@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:medicine_app/bussiness_logic/utills/common_widget/button.dart';
-import 'package:medicine_app/bussiness_logic/utills/common_widget/text_form_field.dart';
-import 'package:medicine_app/bussiness_logic/utills/shared_preference/shared_preference_class.dart';
-import 'package:medicine_app/bussiness_logic/utills/validation/validation_class.dart';
-import 'package:medicine_app/bussiness_logic/utills/app_colors.dart';
-import 'package:medicine_app/bussiness_logic/utills/app_strings.dart';
+import 'package:medicine_app/utils/common_widget/button.dart';
+import 'package:medicine_app/utils/common_widget/text_form_field.dart';
+import 'package:medicine_app/utils/shared_preference/shared_preference_class.dart';
+import 'package:medicine_app/utils/validation/validation_class.dart';
+import 'package:medicine_app/utils/app_colors.dart';
+import 'package:medicine_app/utils/app_strings.dart';
 import 'package:medicine_app/ui/views/register/widget/register_header.dart';
 
 class RegisterScreen extends StatefulWidget {
